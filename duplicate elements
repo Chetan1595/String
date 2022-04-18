@@ -1,0 +1,24 @@
+//Finding duplicate element and removing them
+System.out.println("Enter the String :");
+		String input = sc.next();
+		String result = "";
+		char c[] = input.toCharArray();
+		ArrayList<String> ar = new ArrayList<>();
+		for(int i =0 ; i<c.length; i++) {
+			for(int j = i+1; j<c.length; j++) {
+				if(c[i]==c[j]) {
+					ar.add(String.valueOf(c[i]));
+				}
+			}
+		}
+		HashSet<String> hs = new HashSet<>();
+		System.out.println("Duplicate Elements are :");
+		hs.addAll(ar);
+		Iterator<String> it = hs.iterator();
+		while(it.hasNext()) {
+			System.out.println(it.next());
+		}
+		for(int i=0; i<ar.size(); i++) {
+				input = input.replaceAll(ar.get(i),"");
+		}
+		System.out.println("After removing duplicate elements : \n"+input);
